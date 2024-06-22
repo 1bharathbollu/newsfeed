@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from './Navigation/Navigation';
+import Tech from './Tech/Tech';
+import News from './News/News';
+import Sports from './Sports/Sports'
+//import Political from './Political/Political'
+import Movies from './Movies/Movies'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<News />} />
+          <Route path="/tech" element={<Tech />} />
+          <Route path="/sports" element={<Sports/>}/>
+          <Route path="/movies" element={<Movies/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
-
-export default App;
